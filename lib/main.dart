@@ -1,7 +1,13 @@
 import 'package:auth_mobx/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.deepPurple,
+  ));
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -14,6 +20,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.deepPurple,
         cursorColor: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.deepPurple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LoginScreen(),
     );

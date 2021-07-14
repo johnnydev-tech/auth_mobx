@@ -1,3 +1,4 @@
+import 'package:auth_mobx/store/login_store.dart';
 import 'package:auth_mobx/widget/custom_icon_button.dart';
 import 'package:auth_mobx/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  LoginStore loginStore = LoginStore();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,6 +31,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     hint: 'E-mail',
                     prefix: Icon(Icons.account_circle),
                     textInputType: TextInputType.emailAddress,
+                    onChanged: loginStore.setEmail,
+                    enabled: true,
                   ),
                   const SizedBox(
                     height: 16,
@@ -36,6 +40,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomTextField(
                     hint: 'Senha',
                     prefix: Icon(Icons.lock),
+                    onChanged: loginStore.setPassword,
+                    enabled: true,
                     suffix: CustomIconButton(
                       radius: 32,
                       iconData: Icons.visibility,
