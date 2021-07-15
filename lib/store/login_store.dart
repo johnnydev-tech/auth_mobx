@@ -5,7 +5,10 @@ class LoginStore = _LoginStore with _$LoginStore;
 
 abstract class _LoginStore with Store {
   _LoginStore() {
-    autorun((_) {});
+    autorun((_) {
+      print(email);
+      print(password);
+    });
   }
 
   @observable
